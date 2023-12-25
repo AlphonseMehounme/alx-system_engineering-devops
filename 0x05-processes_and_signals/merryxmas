@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is wishing you Merry Xmas
+while true
+do
+	echo "Merry Xmas to you all"
+	sleep 2
+done
