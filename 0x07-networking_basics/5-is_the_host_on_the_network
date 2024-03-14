@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Pings an IP address passed as an argument
+if not $1
+	echo "Yo"
+else
+	ping -c $1
