@@ -1,0 +1,4 @@
+# Configuration file
+Host *
+  IdentityFile ~/.ssh/school
+  PubkeyAuthentication yes
