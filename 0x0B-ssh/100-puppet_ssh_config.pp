@@ -1,5 +1,7 @@
 # Update SSH config file
-file { '/etc/ssh/ssh_config':
-  ensure => file,
-  content => "Host *\n  PubkeyAuthentication yes\n  IdentityFile ~/.ssh/school\n"
+file { "Turn off passwd auth":
+  name   => '/etc/ssh/ssh_config',
+  path   => '/etc/ssh/ssh_config',
+  line   => "BatchMode yes",
+  ensure => present
 }
