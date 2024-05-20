@@ -4,6 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 service nginx start
-newString="rewrite ^/redirect_me google.com permanent;"
+newString="rewrite ^/redirect_me https://www.google.com/ permanent;"
 sed -i "51i $newString" /etc/nginx/sites-available/default
 service nginx restart
+service nginx reload
