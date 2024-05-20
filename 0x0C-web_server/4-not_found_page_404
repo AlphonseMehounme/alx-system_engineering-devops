@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install and configure nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+service nginx start
+newString="rewrite ^/redirect_me https://www.google.com/ permanent;"
+sed -i "51i $newString" /etc/nginx/sites-available/default
+service nginx restart
+service nginx reload
+echo "Ceci n'est pas une page" | sudo tee /etc/nginx/sites-available/404.html
+errorText="error_page 404 /404.html;"
+sed -i "24i $errorText" /etc/nginx/sites-available/default
+ur="try_files \$uri \$uri/ = 404.html;"
+sed -i "/try_files/c $ur" /etc/nginx/sites-available/default
+service nginx start
+service nginx reload
