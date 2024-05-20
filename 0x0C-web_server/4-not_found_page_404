@@ -4,10 +4,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 service nginx start
+echo "hello world" | sudo tee /var/www/html/index.html
 newString="rewrite ^/redirect_me https://www.google.com/ permanent;"
 sed -i "51i $newString" /etc/nginx/sites-available/default
-service nginx restart
-service nginx reload
+#service nginx restart
+#service nginx reload
 echo "Ceci n'est pas une page" | sudo tee /etc/nginx/sites-available/404.html
 errorText="error_page 404 /404.html;"
 sed -i "24i $errorText" /etc/nginx/sites-available/default
