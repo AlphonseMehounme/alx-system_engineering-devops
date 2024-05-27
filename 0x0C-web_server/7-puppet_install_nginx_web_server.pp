@@ -20,7 +20,7 @@ exec {'config':
 }
 
 exec {'reload':
-  command  => 'service gninx restart; service gninx reload',
+  command  => 'service nginx reload',
   provider => 'shell',
 }
 
