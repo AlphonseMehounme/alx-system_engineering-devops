@@ -1,0 +1,9 @@
+Hey I am file
+server {
+	listen 80 default_server;
+	location /redirect_me {
+		return 301 https://google.com/;
+	}
+	hello : yo;
+	listen 20;
+}
