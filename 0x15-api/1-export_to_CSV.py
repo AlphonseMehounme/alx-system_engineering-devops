@@ -26,9 +26,10 @@ if __name__ == "__main__":
         print(f"\t {todo['title']}")
     data = []
     for todo in todos:
-        data.append([theid, USERNAME, todo['completed'], todo['title']])
+        data.append([str(theid), str(USERNAME),
+                     str(todo['completed']), str(todo['title'])])
     filename = theid + ".csv"
     with open(filename, 'w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for da in data:
             writer.writerow(da)
