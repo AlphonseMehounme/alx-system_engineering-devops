@@ -13,6 +13,7 @@ if __name__ == "__main__":
     todosurl = "https://jsonplaceholder.typicode.com/todos/"
     emp = requests.get(empurl).json()
     EMPLOYEE_NAME = emp['name']
+    USERNAME = emp['username']
     params = {'userId': theid}
     todos = requests.get(todosurl, params=params).json()
     TOTAL_NUMBER_OF_TASKS = len(todos)
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     NUMBER_OF_DONE_TASKS = len(oktodos)
     data = []
     for todo in todos:
-        data.append([theid, EMPLOYEE_NAME, todo['completed'], todo['title']])
+        data.append([theid, USERNAME, todo['completed'], todo['title']])
     print(data)
     filename = theid + ".csv"
     with open(filename, 'w', newline='') as file:
