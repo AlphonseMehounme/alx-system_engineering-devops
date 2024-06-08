@@ -2,8 +2,8 @@
 """
 This module list employee details
 """
-import sys
 import requests
+import sys
 
 
 if __name__ == "__main__":
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     params = {'userId': theid, 'completed': 'true'}
     oktodos = requests.get(todosurl, params=params).json()
     NUMBER_OF_DONE_TASKS = len(oktodos)
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks\
-            ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    print(f"Employee {EMPLOYEE_NAME} is done with " +
+          f"tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     for todo in oktodos:
         print(f"\t {todo['title']}")
