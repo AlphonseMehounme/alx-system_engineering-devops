@@ -12,6 +12,7 @@ if __name__ == "__main__":
     empurl = "https://jsonplaceholder.typicode.com/users/" + theid
     todosurl = "https://jsonplaceholder.typicode.com/todos/"
     emp = requests.get(empurl).json()
+    print(type(emp))
     EMPLOYEE_NAME = emp['name']
     USERNAME = emp['username']
     params = {'userId': theid}
@@ -28,6 +29,7 @@ if __name__ == "__main__":
     for todo in todos:
         data.append([str(theid), str(USERNAME),
                      str(todo['completed']), str(todo['title'])])
+    print(data)
     filename = theid + ".csv"
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
