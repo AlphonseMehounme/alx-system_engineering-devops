@@ -10,8 +10,12 @@ def number_of_subscribers(subreddit):
     Return number of subs
     """
     url = "https://www.reddit.com/api/v1/r/" + subreddit + "/about/"
+    headers = {
+        'User-Agent': 'subs/0.0.1'
+    }
     res = requests.get(url)
     if res.status_code == 200:
-        return 756024
+        res = res.json()
+        return res['data']['subscribers']
     return 0
     
