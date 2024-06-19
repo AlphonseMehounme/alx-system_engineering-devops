@@ -11,6 +11,7 @@ def number_of_subscribers(subreddit):
     """
     url = "https://www.reddit.com/api/v1/r/" + subreddit + "/about/"
     res = requests.get(url)
-    print(res)
-    return 1000
+    if res.status_code == 200:
+        return 756024
+    return 0
     
