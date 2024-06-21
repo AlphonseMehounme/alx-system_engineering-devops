@@ -9,7 +9,7 @@ def number_of_subscribers(subreddit):
     """
     Return number of subs
     """
-    url = "https://www.reddit.com/api/v1/r/" + subreddit + "/about/"
+    url = "https://www.reddit.com/r/" + subreddit + "/about.json"
     headers = {
         'User-Agent': 'subs/0.0.1'
     }
@@ -18,4 +18,3 @@ def number_of_subscribers(subreddit):
         res = res.json()
         return res['data']['subscribers']
     return 0
-    
