@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Fix nginx error
+apt-get -y update
+apt-get -y install nginx
+service nginx restart
